@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
+<!-- 2020-04-18T00:52:33 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Header" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="859643dc-a729-4696-987c-2f476b972a91">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    <parameter name="HEADER_TEXT" class="java.lang.String" isForPrompting="false"/>
+    <parameter name="LOGO" class="java.lang.String" isForPrompting="false"/>
+    <queryString>
+        <![CDATA[]]>
+    </queryString>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="200" splitType="Stretch">
+            <image>
+                <reportElement x="200" y="0" width="160" height="140" uuid="a67a92a4-7e35-4902-be73-7f96a466df54"/>
+                <imageExpression><![CDATA[$P{LOGO}]]></imageExpression>
+            </image>
+            <textField>
+                <reportElement x="0" y="150" width="554" height="50" uuid="f2f01da0-abb8-4c71-8529-00bd8e0479bd"/>
+                <textElement textAlignment="Center" verticalAlignment="Top">
+                    <font size="26" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{HEADER_TEXT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+</jasperReport>

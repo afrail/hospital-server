@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 5.6.2.final using JasperReports Library version 5.6.1  -->
+<!-- 2020-04-16T21:38:35 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="14689923-cbc7-4d79-9c4a-1893eee643d3">
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Inventory"/>
+    <queryString>
+        <![CDATA[SELECT * FROM rec_exam_type]]>
+    </queryString>
+    <field name="id" class="java.lang.Integer">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <field name="code" class="java.lang.String">
+        <fieldDescription><![CDATA[]]></fieldDescription>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <detail>
+        <band height="33" splitType="Stretch">
+            <textField>
+                <reportElement x="140" y="0" width="100" height="30" uuid="364b2a26-0bef-4c09-ae14-99a15e2731d6"/>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="309" y="3" width="100" height="30" uuid="94a9cc12-fec4-424e-af98-71bd82758532"/>
+                <textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+</jasperReport>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="country-visited" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="10" rightMargin="0"
+              topMargin="0" bottomMargin="0" uuid="2e443d7d-f1f7-4df3-8649-4e7416f76bfa">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="bof-erp"/>
+    <parameter name="p_emp_id" class="java.lang.Integer">
+        <defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+    </parameter>
+    <queryString language="SQL">
+        <![CDATA[select get_com_lookup_name(leave.country_id) as name
+from hrm_employee_leave_information leave  
+where 1 = 1
+and leave.employee_id =  $P{p_emp_id}]]>
+    </queryString>
+    <field name="name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="name"/>
+        <property name="com.jaspersoft.studio.field.label" value="name"/>
+    </field>
+    <group name="name">
+        <groupExpression><![CDATA[$F{name}]]></groupExpression>
+    </group>
+    <title>
+        <band splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band splitType="Stretch"/>
+    </columnHeader>
+    <detail>
+        <band height="18" splitType="Stretch">
+            <property name="com.jaspersoft.studio.layout"
+                      value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+            <textField>
+                <reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="585" height="18"
+                               uuid="b492996a-6932-4b0a-afea-d58b2d4a5bb9">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="8a1c3c94-7553-41ff-a447-b54cd6e6ce7e"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+</jasperReport>

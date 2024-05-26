@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="EX_BD_LVE_Application" pageWidth="595" pageHeight="1000" columnWidth="570" leftMargin="5"
+              rightMargin="20" topMargin="20" bottomMargin="5" uuid="decaf48a-ab22-4299-a3d5-bbe0e8ca8b8f">
+    <property name="com.jaspersoft.studio.data.sql.tables">
+        <![CDATA[aHJtX2VtcGxveWVlX3BlcnNvbmFsX2luZm9ybWF0aW9uICwyNDEsMTUsYTliOGZjN2QtZTAyOC00
+NTYwLWIzNjAtNjY3ZGIzOTZhMmI4O2hybV9lbXBsb3llZV9vZmZpY2lhbF9pbmZvcm1hdGlvbiAs
+Njg4LDE4NCxiOThjYjM3YS0yNzBhLTRhZjEtYmVkMC0xNzVlMWRkZTdmZWM7aHJtX2VtcGxveWVl
+X2xlYXZlX2luZm9ybWF0aW9uICwxNSwzODIsMzViM2JkOGItOWRjYS00NzQyLWE1ZWMtNjFjYWYz
+OTFjZWY1O2hybV9jb21taXNpb25faW5mb3JtYXRpb24gLDQ4Niw0NzUsZDIwNWIzMjktZDUxYi00
+YWFiLWEwMTgtMmE3MjY4MDFjMTMzOw==]]>
+    </property>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="BOF"/>
+    <property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="566"/>
+    <property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="420"/>
+    <subDataset name="Ex_BD_Availed_Previously" uuid="e3dfbd47-b7ee-4848-9385-20062d8fcd31">
+        <property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+    </subDataset>
+    <parameter name="P_EMPLOYEE_ID" class="java.lang.Integer"/>
+    <queryString language="SQL">
+        <![CDATA[select b.code ||', '|| get_com_lookup_name(b.EMPLOYEE_RANK) ||', '|| b.EMPLOYEE_NAME applicant_Name,
+c.COMMISSION_DATE, d.RETIREMENT_DATE, a.FROM_DATE||', '|| a.TO_DATE ||' ('|| a.TOTAL_DAYS ||')' Duration,
+a.LEAVE_REASON, get_com_lookup_name(a.COUNTRY_ID) country, b.MOBILE_NUMBER, b.EMAIL_ID
+from HRM_EMPLOYEE_LEAVE_INFORMATION a, HRM_EMPLOYEE_PERSONAL_INFORMATION b, hrm_commision_information c,
+HRM_EMPLOYEE_OFFICIAL_INFORMATION d
+where 1=1
+and b.id=a.employee_id
+and c.employee_id=a.employee_id
+and d.employee_id=a.employee_id
+and a.EMPLOYEE_ID = $P{P_EMPLOYEE_ID}]]>
+    </queryString>
+    <field name="applicant_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="applicant_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="applicant_name"/>
+    </field>
+    <field name="commission_date" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="commission_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="commission_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_commision_information"/>
+    </field>
+    <field name="retirement_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="retirement_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="retirement_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_official_information"/>
+    </field>
+    <field name="duration" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="duration"/>
+        <property name="com.jaspersoft.studio.field.label" value="duration"/>
+    </field>
+    <field name="leave_reason" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="leave_reason"/>
+        <property name="com.jaspersoft.studio.field.label" value="leave_reason"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_leave_information"/>
+    </field>
+    <field name="country" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="country"/>
+        <property name="com.jaspersoft.studio.field.label" value="country"/>
+    </field>
+    <field name="mobile_number" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="mobile_number"/>
+        <property name="com.jaspersoft.studio.field.label" value="mobile_number"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_personal_information"/>
+    </field>
+    <field name="email_id" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="email_id"/>
+        <property name="com.jaspersoft.studio.field.label" value="email_id"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_personal_information"/>
+    </field>
+    <group name="applicant_name">
+        <groupExpression><![CDATA[$F{applicant_name}]]></groupExpression>
+    </group>
+    <group name="commission_date">
+        <groupExpression><![CDATA[$F{commission_date}]]></groupExpression>
+    </group>
+    <group name="retirement_date">
+        <groupExpression><![CDATA[$F{retirement_date}]]></groupExpression>
+    </group>
+    <group name="duration">
+        <groupExpression><![CDATA[$F{duration}]]></groupExpression>
+    </group>
+    <group name="leave_reason">
+        <groupExpression><![CDATA[$F{leave_reason}]]></groupExpression>
+    </group>
+    <group name="country">
+        <groupExpression><![CDATA[$F{country}]]></groupExpression>
+    </group>
+    <group name="mobile_number">
+        <groupExpression><![CDATA[$F{mobile_number}]]></groupExpression>
+    </group>
+    <group name="email_id">
+        <groupExpression><![CDATA[$F{email_id}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="73" splitType="Stretch">
+            <staticText>
+                <reportElement x="441" y="0" width="100" height="60" uuid="f6c0ee2b-7d36-4b4b-acb2-630907bd14e0"/>
+                <text><![CDATA[ANX A
+BOF LATER NO. 
+23.27.0000.116
+DT: ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="130" y="34" width="290" height="30" uuid="af60837c-976f-4bb3-84ca-91c91f952f27"/>
+                <textElement>
+                    <font fontName="Arial" size="26" isBold="true" isUnderline="true"/>
+                </textElement>
+                <text><![CDATA[EX BD LVE Application]]></text>
+            </staticText>
+        </band>
+    </title>
+    <detail>
+        <band height="575" splitType="Stretch">
+            <staticText>
+                <reportElement x="31" y="12" width="240" height="20" uuid="ccef48b8-5b3a-4056-aecf-073bdcdfcd76"/>
+                <text><![CDATA[1. Applicant No. Rank & Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="33" width="240" height="20" uuid="32012d8d-f2bb-491a-bad9-c2645055d0f1"/>
+                <text><![CDATA[2. Dt of Commission/Enrolment]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="53" width="240" height="20" uuid="be0267d0-f56b-4f05-8bfd-4d0b802506c7"/>
+                <text><![CDATA[3. Present Unit/Estb/Inst Name	]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="71" width="240" height="20" uuid="ed9b22fa-bf33-417d-b3aa-78fa439b0227"/>
+                <text><![CDATA[4. Dt of Retirement in present Rk ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="90" width="240" height="20" uuid="d09ab8b7-1c0e-4af0-95e6-3662c35a1b5c"/>
+                <text><![CDATA[5. Duration of Ex BD Lve	]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="110" width="240" height="20" uuid="d0b0620a-ea2a-4a29-a9a5-320e05df9701"/>
+                <text><![CDATA[6. Reason for Ex BD Lve	]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="132" width="240" height="32" uuid="2a582427-9388-4c2b-ad51-8d1c7a7f539c"/>
+                <text><![CDATA[7. Country Name (Ex BD Lve availing country/ 	countries]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="164" width="240" height="32" uuid="2d82b2f1-e432-41a5-88a4-80d7e1059d1c"/>
+                <text><![CDATA[8. Name of Accompanying Family Member and 	other Relatives while Lve]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="300" width="240" height="20" uuid="24fdd854-42c0-4bd3-bd3d-c165a2316d47"/>
+                <text><![CDATA[11. Description of any Relatives staying in Ex BD Availing Countries]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="218" width="240" height="82" uuid="acb128ac-421c-4653-8787-ebb15d052cb6"/>
+                <text><![CDATA["10. if Assigned for foreign Govt. Duty/Trg/Course (if aplicable)
+                       a. Country
+                       b. Duration
+                       c. Name and Designation of Govt. 		Duty/Trg/Course"]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="197" width="240" height="20" uuid="7aa68cee-2b2b-4c08-987a-de96155059b3"/>
+                <text><![CDATA[9. Means to bear the Ex BD Lve Expenditure]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="12" width="9" height="20" uuid="1a413947-198e-44aa-b35e-52254e99cace"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="164" width="9" height="20" uuid="08bb2acd-fea7-46ac-97c3-64f635c25d7a"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="196" width="9" height="20" uuid="8297cbd4-942d-452a-a5de-3ff8ef393b29"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="216" width="9" height="20" uuid="e0614c8a-82c6-4157-adec-a1cbb486bd5d"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="300" width="9" height="20" uuid="1c96ed63-d2b8-49b8-9560-b7bb72bcbeb9"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="72" width="9" height="20" uuid="156a28e4-88cc-4648-9d3c-79021bd04ada"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="90" width="9" height="20" uuid="e9719b67-e857-40ef-bd6a-d8271ae67349"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="110" width="9" height="20" uuid="e6fea76e-ceac-4767-b9f1-aa3c7ebf165b"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="132" width="9" height="20" uuid="e1e1f20e-6fcc-4933-93f0-51921829085e"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="53" width="9" height="20" uuid="2e2d11d8-360b-4697-84f0-80b2a2aaf351"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="271" y="32" width="9" height="20" uuid="e47c4849-b8fc-4a03-b6f7-40e95c82107b"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="320" width="490" height="20" uuid="61f5bd39-9792-4866-8b3e-4918d1bdca75"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text>
+                    <![CDATA[12. Country and Duration where Ex BD  Ex BD Availed Previously								]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="131" y="340" width="340" height="40" uuid="6c59a4fe-187b-44e8-9b6a-3a179364a404"/>
+                <box padding="2"/>
+                <text><![CDATA[S/N	Country Name		Duration		Total Days	Type of Lve
+				From	To			
+							]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="31" y="388" width="490" height="20" uuid="513f4433-a27a-4a31-ad50-5bd045ddc1a2"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[13. Name of Country and Duration where availed on Govt. Duty/Govt. Expendityure]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="131" y="408" width="340" height="40" uuid="602d2d87-7617-4875-99c7-1e37775a7f4f"/>
+                <box padding="2"/>
+                <text><![CDATA[S/N	Country Name		Duration		Total Days	Type of Lve
+				From	To			
+							]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="35" y="499" width="240" height="20" uuid="30f27607-c5aa-42e1-8c1b-6209669b6fbb"/>
+                <text><![CDATA[Date:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="281" y="12" width="240" height="20" uuid="2947ad88-a89e-4dcd-ba88-1da1167f0893"/>
+                <textFieldExpression><![CDATA[$F{applicant_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="281" y="32" width="240" height="20" uuid="7397e74f-dc74-41b3-a6c9-78d8d64d5f84"/>
+                <textFieldExpression><![CDATA[$F{commission_date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="52" width="240" height="20" uuid="76993994-72c7-4fb2-aa51-7d1b12860366"/>
+                <textFieldExpression><![CDATA[" "]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="70" width="240" height="20" uuid="66bc9dc4-007c-4bba-bcdf-008e59f9556e"/>
+                <textFieldExpression><![CDATA[$F{retirement_date}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="90" width="240" height="20" uuid="7b6b0c99-962a-4a9f-af0e-ca731893cfc1"/>
+                <textFieldExpression><![CDATA[$F{duration}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="280" y="110" width="240" height="20" uuid="3e18b59d-69c9-4200-be94-1a41ac299f99"/>
+                <textFieldExpression><![CDATA[$F{leave_reason}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="281" y="132" width="240" height="20" uuid="b880d371-19b2-416f-85b6-890b8eca40e7"/>
+                <textFieldExpression><![CDATA[$F{country}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="33" y="440" width="240" height="20" uuid="f7918416-7891-43b3-8001-e21674db2c6e"/>
+                <text><![CDATA[14. Office/Personal Mobile No]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="33" y="460" width="240" height="20" uuid="6bba5d91-0c71-4e63-9390-f2650c57bec0"/>
+                <text><![CDATA[15. Personal E-mail address]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="273" y="440" width="9" height="20" uuid="929c5648-4c0c-4aa3-997d-d8bade313bf0"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="273" y="460" width="9" height="20" uuid="8a1135d5-bed6-4284-b733-524f8ad072a0"/>
+                <text><![CDATA[:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="282" y="440" width="240" height="20" uuid="221f4eda-2a28-4c80-a5af-dd5ac120abed"/>
+                <textFieldExpression><![CDATA[$F{mobile_number}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="283" y="460" width="240" height="20" uuid="87dc40db-8e52-4a22-832b-c53793d50622"/>
+                <textFieldExpression><![CDATA[$F{email_id}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="55" splitType="Stretch"/>
+    </pageFooter>
+</jasperReport>

@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  web:
+    container_name: webx_customer_service
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    env_file: ./.env
+    ports:
+      - 9011:9011
+    volumes:
+      - ./uploads:/home/uploads

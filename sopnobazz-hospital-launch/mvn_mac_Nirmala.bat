@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=Nirmala.jar -DgroupId=ibcs-font -DartifactId=nirmala -Dversion=1.0 -Dpackaging=jar

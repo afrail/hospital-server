@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="course-information" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="10"
+              rightMargin="0" topMargin="0" bottomMargin="0" uuid="9e1f12c1-f846-4b2a-9796-31fe9052385f">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="bof-erp"/>
+    <property name="com.jaspersoft.studio.unit." value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+    <property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+    <parameter name="p_emp_id" class="java.lang.Integer"/>
+    <queryString language="SQL">
+        <![CDATA[select tran.institute_name , tran.training_name , tran.training_location , tran.from_date ,
+tran.to_date , tran .duration , htt."name" as name
+from hrm_employee_training_information tran, hrm_training_type htt 
+where 1 = 1
+and tran .employee_id = $P{p_emp_id}
+and tran .training_type_id = htt .id]]>
+    </queryString>
+    <field name="institute_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="institute_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="institute_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="training_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="training_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="training_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="training_location" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="training_location"/>
+        <property name="com.jaspersoft.studio.field.label" value="training_location"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="from_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="from_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="from_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="to_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="to_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="to_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="duration" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="duration"/>
+        <property name="com.jaspersoft.studio.field.label" value="duration"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_training_information"/>
+    </field>
+    <field name="name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="name"/>
+        <property name="com.jaspersoft.studio.field.label" value="name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_training_type"/>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="20" splitType="Stretch">
+            <staticText>
+                <reportElement x="210" y="0" width="200" height="20" uuid="f82006c9-b7f6-44c5-86fa-83ad874a10b6">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="8ddf66b6-c33e-48a4-9a09-9ef78d7a81b7"/>
+                </reportElement>
+                <box leftPadding="5"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Institute Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="410" y="0" width="138" height="20" uuid="2e340cea-c28e-41ef-842b-55764f063dd4">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="fdd4aae8-05d9-4b79-a887-9ad8f3ae32e9"/>
+                </reportElement>
+                <box leftPadding="5"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Training Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="0" width="30" height="20" uuid="3e70f468-73cc-4515-8ace-1ec7a9c03df7"/>
+                <box topPadding="2" leftPadding="5"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Sl.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="30" y="0" width="180" height="20" uuid="d58dbf33-5909-415d-ae6b-e0f124f7401f">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="d7c0f7c1-07d5-4ae4-9edb-7ea8fbed8385"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Training Type]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="210" y="0" width="200" height="20" uuid="ec849120-c8bb-4027-9598-5b19f545e465">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="8ddf66b6-c33e-48a4-9a09-9ef78d7a81b7"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textFieldExpression><![CDATA[$F{institute_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="410" y="0" width="138" height="20" uuid="0bd91337-f2e5-437f-b394-7ffda0feb1ac">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="fdd4aae8-05d9-4b79-a887-9ad8f3ae32e9"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textFieldExpression><![CDATA[$F{training_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="0" y="0" width="30" height="20" uuid="65febbab-ce97-4004-b12c-79278b2213fb"/>
+                <box topPadding="2" leftPadding="5"/>
+                <textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="30" y="0" width="180" height="20" uuid="e5d3fb3f-26c3-432c-9498-1309f60878fa">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="d7c0f7c1-07d5-4ae4-9edb-7ea8fbed8385"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="biodataEducationalQualification" pageWidth="595" pageHeight="842" columnWidth="585" leftMargin="10"
+              rightMargin="0" topMargin="0" bottomMargin="0" uuid="d7827f8b-7d23-449e-8a00-bd0743217de2">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="bof-erp"/>
+    <parameter name="p_emp_id" class="java.lang.Integer">
+        <defaultValueExpression><![CDATA[new Integer(1)]]></defaultValueExpression>
+    </parameter>
+    <queryString language="SQL">
+        <![CDATA[select edu.institute_name  as ins_name, edu.major_subject ,  edu.passing_year ,
+edu.result,  get_com_lookup_name(edu.board_or_university) as board_or_university , get_com_lookup_name(edu.exam_id) as  exam_name
+from hrm_employee_education_information edu
+where edu .employee_id = $P{p_emp_id}]]>
+    </queryString>
+    <field name="ins_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="ins_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="ins_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_education_information"/>
+    </field>
+    <field name="major_subject" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="major_subject"/>
+        <property name="com.jaspersoft.studio.field.label" value="major_subject"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_education_information"/>
+    </field>
+    <field name="passing_year" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="passing_year"/>
+        <property name="com.jaspersoft.studio.field.label" value="passing_year"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_education_information"/>
+    </field>
+    <field name="result" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="result"/>
+        <property name="com.jaspersoft.studio.field.label" value="result"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_education_information"/>
+    </field>
+    <field name="board_or_university" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="board_or_university"/>
+        <property name="com.jaspersoft.studio.field.label" value="board_or_university"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_education_information"/>
+    </field>
+    <field name="exam_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="exam_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="exam_name"/>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band splitType="Stretch"/>
+    </title>
+    <pageHeader>
+        <band splitType="Stretch"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="41" y="0" width="234" height="30" uuid="2fda0a53-8bb6-4a41-8c32-629ae37a6227">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="9e0072b5-19e2-49b3-a9b4-c71b14558b83"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="275" y="0" width="140" height="30" uuid="ab695c2d-54ca-4b9f-9bfb-4980669eb998">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="bfb92538-9ab8-4afc-9080-9ff8bbde6911"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Passing Year]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="0" width="140" height="30" uuid="6696e102-c764-4744-875c-67ec142c4dfc">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="cca4af17-eb30-4ddf-aa2e-e749d2290d97"/>
+                </reportElement>
+                <box topPadding="2" leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Result]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="-1" y="0" width="41" height="30" uuid="05d075de-57ce-4dc6-ab79-621ed68f6891"/>
+                <box topPadding="2" leftPadding="5">
+                    <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textElement>
+                    <font isBold="true"/>
+                </textElement>
+                <text><![CDATA[Serial No]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20" splitType="Stretch">
+            <textField>
+                <reportElement x="41" y="0" width="234" height="20" uuid="6e06ceac-e788-47ee-8f56-614f3902891b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="9e0072b5-19e2-49b3-a9b4-c71b14558b83"/>
+                </reportElement>
+                <box leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{exam_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="275" y="0" width="140" height="20" uuid="1438f9b5-8a46-4d29-9fcf-9aebcbcce1ba">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="bfb92538-9ab8-4afc-9080-9ff8bbde6911"/>
+                </reportElement>
+                <box leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{passing_year}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="415" y="0" width="140" height="20" uuid="39a7ba8e-27a8-4534-bc98-e089290277d5">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="cca4af17-eb30-4ddf-aa2e-e749d2290d97"/>
+                </reportElement>
+                <box leftPadding="5"/>
+                <textElement textAlignment="Left">
+                    <font size="12"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{result}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="-1" y="0" width="41" height="20" uuid="44b0b683-82e8-469a-ab72-71194cb7d7d7"/>
+                <box leftPadding="5">
+                    <topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                    <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+                </box>
+                <textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band splitType="Stretch"/>
+    </summary>
+</jasperReport>

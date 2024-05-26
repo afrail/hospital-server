@@ -1,0 +1,45 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!--
+        * @Project   ibcs-bof-erp
+        * @Author    Md. Mizanur Rahman - 598
+        * @Since     May 28, 2021
+        * @version   1.0.0
+    -->
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.sopnobazz</groupId>
+        <artifactId>hospital-server</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>sopnobazz-hospital-comon</artifactId>
+    <name>sopnobazz-hospital-comon</name>
+
+    <properties></properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.1</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+    </build>
+</project>

@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+	<!-- 
+		* @Project   ibcs-bof-erp
+	    * @Author    Md. Mizanur Rahman - 598
+	    * @Since     May 28, 2021
+	    * @version   1.0.0
+	-->
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+	  <groupId>com.sopnobazz</groupId>
+	  <artifactId>hospital-server</artifactId>
+	  <version>1.0.0</version>
+	</parent>
+	
+	<artifactId>sopnobazz-hospital-doctor-patient</artifactId>
+	<name>sopnobazz-hospital-doctor-patient</name>
+	<description>Doctor Patient Module</description>
+
+	<properties></properties>
+	
+	<dependencies>
+		
+		<dependency>
+			<groupId>com.sopnobazz</groupId>
+			<artifactId>sopnobazz-hospital-comon</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+</project>

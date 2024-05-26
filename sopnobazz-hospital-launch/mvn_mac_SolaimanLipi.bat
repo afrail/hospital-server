@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=SolaimanLipi.jar -DgroupId=oith -DartifactId=solaiman-lipi -Dversion=1.0 -Dpackaging=jar

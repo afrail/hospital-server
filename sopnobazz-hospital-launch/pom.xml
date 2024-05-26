@@ -1,0 +1,55 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.sopnobazz</groupId>
+        <artifactId>hospital-server</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>sopnobazz-hospital-launch</artifactId>
+    <name>sopnobazz-hospital-launch</name>
+    <description>Bootstraing</description>
+    <packaging>jar</packaging>
+
+
+    <properties></properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.sopnobazz</groupId>
+            <artifactId>sopnobazz-hospital-sysadmin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>oith</groupId>
+            <artifactId>solaiman-lipi</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ibcs-font</groupId>
+            <artifactId>nirmala</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>ibcs-font</groupId>
+            <artifactId>nikosh-ban</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>hospital-server</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

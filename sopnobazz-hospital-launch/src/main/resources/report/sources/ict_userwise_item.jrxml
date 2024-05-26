@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="ict_userwise_item_rpt" language="java" pageWidth="650" pageHeight="842" columnWidth="610"
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+              uuid="dbd472e7-e100-4983-9597-63ea8038f281">
+    <property name="ireport.zoom" value="1.0"/>
+    <property name="ireport.x" value="0"/>
+    <property name="ireport.y" value="0"/>
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="BOF"/>
+    <style name="table">
+        <box>
+            <pen lineWidth="1.0" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+        <box>
+            <pen lineWidth="0.5" lineColor="#000000"/>
+        </box>
+    </style>
+    <subDataset name="Table Dataset 1" uuid="9427e01d-5719-4634-8220-721a4a76fcf3"/>
+    <parameter name="P_FROM_DATE" class="java.util.Date"/>
+    <parameter name="P_TO_DATE" class="java.util.Date"/>
+    <parameter name="P_CATG" class="java.lang.Integer"/>
+    <parameter name="P_EMPLOYEE_ID" class="java.lang.Integer"/>
+    <queryString>
+        <![CDATA[select  c.category_name as cat_name,d.name as item_name,d.item_description as description,e.employee_name,
+a.issue_date as issue_date,b.issue_to as issue_to,case when r.item_status='N' then 'New'
+when r.item_status='R' then 'Repair' else r.item_status end item_status,
+itb.name as item_brand,b.issue_quantity issue_qty
+from ict_item_issue_master a
+inner join ict_item_issue_details b
+on a.id=b.item_issue_master
+inner join ict_item_category c
+on c.id=b.item_Category
+inner join ict_item_master d
+on d.id=b.Item_Master
+inner join hrm_employee_personal_information e
+on e.id=b.issue_to
+inner join ict_item_received_details r
+on c.id=r.item_brand
+inner join ict_item_brand itb
+on itb.id=b.item_brand
+and b.item_Category=COALESCE($P{P_CATG},b.item_Category)
+and a.issue_date between $P{P_FROM_DATE} AND $P{P_TO_DATE}
+and c.id=b.item_Category
+and d.id=b.Item_Master
+and e.id=COALESCE ($P{P_EMPLOYEE_ID},E.ID)
+order by a.issue_date asc]]>
+    </queryString>
+    <field name="cat_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="cat_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="cat_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_category"/>
+    </field>
+    <field name="item_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="item_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="item_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_master"/>
+    </field>
+    <field name="description" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="description"/>
+        <property name="com.jaspersoft.studio.field.label" value="description"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_master"/>
+    </field>
+    <field name="employee_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="employee_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="employee_name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_personal_information"/>
+    </field>
+    <field name="issue_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="issue_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="issue_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_issue_master"/>
+    </field>
+    <field name="issue_to" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="issue_to"/>
+        <property name="com.jaspersoft.studio.field.label" value="issue_to"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_issue_details"/>
+    </field>
+    <field name="item_status" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="item_status"/>
+        <property name="com.jaspersoft.studio.field.label" value="item_status"/>
+    </field>
+    <field name="item_brand" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="item_brand"/>
+        <property name="com.jaspersoft.studio.field.label" value="item_brand"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_brand"/>
+    </field>
+    <field name="issue_qty" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="issue_qty"/>
+        <property name="com.jaspersoft.studio.field.label" value="issue_qty"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_issue_details"/>
+    </field>
+    <variable name="V_DATE" class="java.lang.String" resetType="None">
+        <variableExpression>
+            <![CDATA[($P{P_FROM_DATE} == $P{P_TO_DATE}) ? "As On "+new SimpleDateFormat("dd-MMM-yyyy").format($P{P_FROM_DATE}) : "From: "+new SimpleDateFormat("dd-MMM-yyyy").format($P{P_FROM_DATE}) + " to: "+new SimpleDateFormat("dd-MMM-yyyy").format($P{P_TO_DATE})]]></variableExpression>
+    </variable>
+    <variable name="V_date" class="java.lang.String"/>
+    <title>
+        <band height="99" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="38" width="610" height="15" uuid="122ee94c-1f2f-4d57-bda2-2b02ef131145"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="11" isBold="false" isItalic="false" isUnderline="false"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{V_DATE} == null ?$F{issue_date} : $V{V_DATE}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="20" width="610" height="16" uuid="e59bf5f1-9af4-488a-ae2f-c84d45c41e09"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[User Wise Item  Report]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="180" y="55" width="260" height="17" uuid="02428528-96e6-4502-be96-1ea66aaf5e9d"/>
+                <box rightPadding="3"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{cat_name}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="0" width="610" height="18" uuid="f45067e6-241d-4b3c-bfc3-c157761093a2"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Bangladesh Ordinance Factory]]></text>
+            </staticText>
+            <textField evaluationTime="Report">
+                <reportElement x="569" y="83" width="39" height="16" uuid="0820b9a2-69e8-4a1a-960e-81dc09be08f9"/>
+                <textElement verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="500" y="83" width="69" height="16" uuid="6b187429-8d66-41da-8386-aace5434e8dd"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font fontName="SansSerif" size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="180" y="71" width="260" height="17" uuid="031fb807-5c86-484e-9912-ae67ef00a1c1"/>
+                <box rightPadding="3"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$F{employee_name}]]></textFieldExpression>
+            </textField>
+            <frame>
+                <reportElement stretchType="RelativeToBandHeight" x="0" y="36" width="610" height="48"
+                               uuid="e2c1757d-a453-4792-b08e-b3712815adec"/>
+                <box bottomPadding="0">
+                    <topPen lineWidth="0.25" lineStyle="Dotted"/>
+                    <leftPen lineWidth="0.25" lineStyle="Dotted"/>
+                    <bottomPen lineWidth="0.25" lineStyle="Dotted"/>
+                    <rightPen lineWidth="0.25" lineStyle="Dotted"/>
+                </box>
+            </frame>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="26" splitType="Stretch">
+            <staticText>
+                <reportElement x="20" y="0" width="131" height="26" uuid="574fb4cb-ab23-48c8-b917-084634459477"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Item Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="530" y="0" width="80" height="26" uuid="438ce114-3e3f-4eaf-ad5b-5f9ef0d36683"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Item Status]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="0" width="20" height="26" uuid="f761a423-bc44-47ee-94d5-feed33bc2ff0"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[SL
+#]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="151" y="0" width="149" height="26" uuid="1cdbc800-893e-4c12-97a1-8b9681a260de"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Item Description]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="300" y="0" width="138" height="26" uuid="68d7e986-5967-4329-ab5e-8ce98611326e"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Employee Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="438" y="0" width="92" height="26" uuid="08dc356b-38ca-4c77-a7a0-f523981db6b0"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Issue Date ]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="16" splitType="Stretch">
+            <textField>
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="0" y="0" width="20"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="f1702197-fde0-487b-a800-bf46e9b3c932"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="20" y="0" width="131"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="656d18c4-ad60-4328-bbde-ee3c535dbf52"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{item_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="151" y="0" width="149"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="282c2f9c-1fb3-40f6-9170-3ed9283f122f"/>
+                <box>
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="300" y="0" width="138"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="eb244dde-f057-4cdf-bbe8-19df0033d5e6"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{employee_name}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="530" y="0" width="80"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="716465bd-3709-4d0c-a2cc-5d3a30f0543a"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{item_status}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement positionType="Float" stretchType="RelativeToTallestObject" x="438" y="0" width="92"
+                               height="16" isPrintWhenDetailOverflows="true"
+                               uuid="2cc5b0fa-aabc-4b11-9840-df269a54ec16"/>
+                <box leftPadding="3">
+                    <pen lineWidth="0.25"/>
+                    <topPen lineWidth="0.25"/>
+                    <leftPen lineWidth="0.25"/>
+                    <bottomPen lineWidth="0.25"/>
+                    <rightPen lineWidth="0.25"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{issue_date}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <pageFooter>
+        <band height="189">
+            <staticText>
+                <reportElement x="410" y="120" width="90" height="18" isPrintWhenDetailOverflows="true"
+                               uuid="b2f342a7-8149-4db5-b7e1-5845df5ef4d8"/>
+                <textElement textAlignment="Center"/>
+                <text><![CDATA[Report Date:]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="3" y="121" width="268" height="17" isPrintWhenDetailOverflows="true"
+                               uuid="eccfbe5f-1bdc-4c9e-a27c-4288fbad82ae"/>
+                <text><![CDATA[Powered by: IBCS-PRIMAX Software Bangladesh LTD.]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="500" y="120" width="109" height="18" uuid="492d85ad-709a-492a-91fb-89760af36933"/>
+                <textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+</jasperReport>

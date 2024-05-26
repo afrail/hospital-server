@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="HRM(working_civilian_officer" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20"
+              rightMargin="20" topMargin="20" bottomMargin="20" uuid="316850c6-c1f1-4bb6-8f3f-915e4353ddd5">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="Item_Category"/>
+    <property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="159"/>
+    <property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="830"/>
+    <queryString language="SQL">
+        <![CDATA[select  code ||', '||employee_name_bangla  emp_name
+,get_com_lookup_bn_name(b.DESIGNATION_ID)||', '|| get_com_lookup_bn_name(b.BRANCH_ID) emp_namew, b.JOINING_DATE , c.PROMOTION_DATE, a.DATE_OF_BIRTH
+, b.RETIREMENT_DATE , get_emp_grade_name(1)
+, get_com_lookup_bn_name(a.PERMANENT_DISTRICT)
+from hrm_employee_personal_information a, hrm_employee_official_information b
+, HRM_EMPLOYEE_PROMOTION_INFORMATION c
+where 1=1
+and a.id=b.employee_id
+and a.id=c.employee_id
+and IS_OFFICER = true
+and b.branch_id=COALESCE(null,b.branch_id)
+and b.designation_id=COALESCE(null,b.designation_id)
+and b.shop_id=COALESCE(null,b.shop_id)
+and b.wing_id=COALESCE(null,b.wing_id)
+and a.permanent_district=COALESCE(null,a.permanent_district)
+and b.grade_id=COALESCE(null,b.grade_id)]]>
+    </queryString>
+    <field name="emp_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="emp_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="emp_name"/>
+    </field>
+    <field name="emp_namew" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="emp_namew"/>
+        <property name="com.jaspersoft.studio.field.label" value="emp_namew"/>
+    </field>
+    <field name="joining_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="joining_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="joining_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_official_information"/>
+    </field>
+    <field name="promotion_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="promotion_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="promotion_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_promotion_information"/>
+    </field>
+    <field name="date_of_birth" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="date_of_birth"/>
+        <property name="com.jaspersoft.studio.field.label" value="date_of_birth"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_personal_information"/>
+    </field>
+    <field name="retirement_date" class="java.sql.Timestamp">
+        <property name="com.jaspersoft.studio.field.name" value="retirement_date"/>
+        <property name="com.jaspersoft.studio.field.label" value="retirement_date"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="hrm_employee_official_information"/>
+    </field>
+    <field name="get_emp_grade_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="get_emp_grade_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="get_emp_grade_name"/>
+    </field>
+    <field name="get_com_lookup_bn_name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="get_com_lookup_bn_name"/>
+        <property name="com.jaspersoft.studio.field.label" value="get_com_lookup_bn_name"/>
+    </field>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="79" splitType="Stretch">
+            <staticText>
+                <reportElement x="80" y="30" width="400" height="30" uuid="c9dff215-2d41-433b-ac22-c3afd800f997"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Calibri" size="24"/>
+                </textElement>
+                <text><![CDATA[Bangladesh Ordnance Factory]]></text>
+            </staticText>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="36" splitType="Stretch">
+            <textField>
+                <reportElement x="410" y="2" width="100" height="30" uuid="8bb6d930-4881-406d-b60e-6f77e41b30a0"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement x="510" y="2" width="100" height="30" uuid="18053faa-ae3f-4042-860c-3d000aade94b"/>
+                <textElement textAlignment="Left"/>
+                <textFieldExpression><![CDATA[" of " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="170" y="2" width="218" height="20" uuid="a50f7fb6-04cc-474f-87d8-ecec25865fd1"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Nirmala UI" size="11" isBold="false"/>
+                </textElement>
+                <text><![CDATA[কর্মরত বেসামরিক কর্মকর্তা]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="80" height="30" uuid="c30e899e-bbe2-420b-b1dd-0e8497e77930"/>
+                <box topPadding="4">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Nirmala UI" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ক্রমিক নং]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="80" y="0" width="190" height="30" uuid="a01842c0-6371-48c4-8ad5-ff302842175a">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="77c2fe47-1d28-4caa-a3df-1fa5297f5976"/>
+                </reportElement>
+                <box topPadding="4">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Nirmala UI" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ব্যঃ  নং ও  নাম ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="270" y="0" width="180" height="30" uuid="055c3513-55a7-4c7c-a581-9c90ecfc12b0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="355b7a67-01ed-45d9-b95a-5b6dac6b98ab"/>
+                </reportElement>
+                <box topPadding="4">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Nirmala UI" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[পদবী  ও     শাখা  ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="450" y="0" width="95" height="30" uuid="be4e69e6-3dea-43cd-ba14-b83aabcd7985">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="e476c805-ae0a-4c59-8b4c-d5a1423325d2"/>
+                </reportElement>
+                <box topPadding="4">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center">
+                    <font fontName="Nirmala UI" size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[নিজ জেলা ]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="30" splitType="Stretch">
+            <textField>
+                <reportElement x="0" y="0" width="80" height="30" uuid="4b319d9f-bffe-472e-aa8a-b5fb8c19dba2"/>
+                <box topPadding="4" leftPadding="4" bottomPadding="0">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement textAlignment="Center" verticalAlignment="Middle"/>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="80" y="0" width="190" height="30" uuid="1fd81b06-3fc9-4491-be38-a3f19791ea94">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="77c2fe47-1d28-4caa-a3df-1fa5297f5976"/>
+                </reportElement>
+                <box topPadding="4" leftPadding="4" bottomPadding="0">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement>
+                    <font fontName="Nirmala UI"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{emp_name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="270" y="0" width="180" height="30" uuid="291e0233-dd0e-41b4-9387-42cedc70044c">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="355b7a67-01ed-45d9-b95a-5b6dac6b98ab"/>
+                </reportElement>
+                <box topPadding="4" leftPadding="4" bottomPadding="0">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement>
+                    <font fontName="Nirmala UI"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{emp_namew}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="450" y="0" width="95" height="30" uuid="d6d342dc-5075-4868-bd19-cdb29018ccb3">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="e476c805-ae0a-4c59-8b4c-d5a1423325d2"/>
+                </reportElement>
+                <box topPadding="4" leftPadding="4" bottomPadding="0">
+                    <pen lineWidth="0.5"/>
+                </box>
+                <textElement>
+                    <font fontName="Nirmala UI"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{get_com_lookup_bn_name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="61" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>

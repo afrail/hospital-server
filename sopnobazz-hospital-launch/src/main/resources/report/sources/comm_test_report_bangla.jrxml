@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.17.0-6d93193241dd8cc42629e188b94f9e0bc5722efd  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20"
+              topMargin="20" bottomMargin="20" uuid="b464a551-2978-4b7e-b607-d803d381d077">
+    <property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+    <property name="com.jaspersoft.studio.data.defaultdataadapter" value="BOF_DEV_ADAPTERS"/>
+    <queryString language="SQL">
+        <![CDATA[select * from ict_item_master]]>
+    </queryString>
+    <field name="name" class="java.lang.String">
+        <property name="com.jaspersoft.studio.field.name" value="name"/>
+        <property name="com.jaspersoft.studio.field.label" value="name"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_master"/>
+    </field>
+    <field name="id" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="id"/>
+        <property name="com.jaspersoft.studio.field.label" value="id"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_master"/>
+    </field>
+    <field name="available_stock" class="java.lang.Integer">
+        <property name="com.jaspersoft.studio.field.name" value="available_stock"/>
+        <property name="com.jaspersoft.studio.field.label" value="available_stock"/>
+        <property name="com.jaspersoft.studio.field.tree.path" value="ict_item_master"/>
+    </field>
+    <group name="name">
+        <groupExpression><![CDATA[$F{name}]]></groupExpression>
+    </group>
+    <group name="id">
+        <groupExpression><![CDATA[$F{id}]]></groupExpression>
+    </group>
+    <group name="available_stock">
+        <groupExpression><![CDATA[$F{available_stock}]]></groupExpression>
+    </group>
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+    <title>
+        <band height="33" splitType="Stretch">
+            <staticText>
+                <reportElement x="203" y="3" width="100" height="30" uuid="cf94ecfd-b368-42be-a437-1b1873f446bd"/>
+                <text><![CDATA[BOF]]></text>
+            </staticText>
+        </band>
+    </title>
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="20" y="0" width="100" height="30" uuid="49714a9a-4766-4700-a056-56aa1ade5239">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="bb8fbddb-4dea-45f5-a1b1-7b0d371bc310"/>
+                </reportElement>
+                <text><![CDATA[আইডি]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="226" y="0" width="100" height="30" uuid="bfc365e7-f277-4fa8-8158-961ae5288bd0">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="34ef10b0-8999-432b-96e4-e68d493c7186"/>
+                </reportElement>
+                <text><![CDATA[নাম]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="443" y="0" width="100" height="30" uuid="6e0e90e2-4e33-4660-9df4-7dc01a89acd2">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="4715329a-a694-4b69-94b4-344d27bf7cc9"/>
+                </reportElement>
+                <text><![CDATA[মজুতে সহজলভ্য]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="36" splitType="Stretch">
+            <textField>
+                <reportElement x="20" y="6" width="100" height="30" uuid="e72b596b-62ca-4ae8-be68-8b72c100979d">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="bb8fbddb-4dea-45f5-a1b1-7b0d371bc310"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="226" y="4" width="100" height="30" uuid="f4f46aed-499a-4012-8808-40acd613eed4">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="34ef10b0-8999-432b-96e4-e68d493c7186"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+            </textField>
+            <textField>
+                <reportElement x="443" y="3" width="100" height="30" uuid="92a179a5-419d-47e8-b4e0-eb0b2aa5e328">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID"
+                              value="4715329a-a694-4b69-94b4-344d27bf7cc9"/>
+                </reportElement>
+                <textFieldExpression><![CDATA[$F{available_stock}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band height="45" splitType="Stretch"/>
+    </columnFooter>
+    <pageFooter>
+        <band height="54" splitType="Stretch"/>
+    </pageFooter>
+    <summary>
+        <band height="42" splitType="Stretch"/>
+    </summary>
+</jasperReport>
