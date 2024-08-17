@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 23, 2022
  * @version 1.0.0

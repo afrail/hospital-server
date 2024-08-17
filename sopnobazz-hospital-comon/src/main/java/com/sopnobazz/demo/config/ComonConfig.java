@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @version 1.0.0
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since May 28, 2021
  */
 @Configuration

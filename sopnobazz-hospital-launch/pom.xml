@@ -11,7 +11,8 @@
     <artifactId>sopnobazz-hospital-launch</artifactId>
     <name>sopnobazz-hospital-launch</name>
     <description>Bootstraing</description>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
+
 
 
     <properties></properties>
@@ -22,6 +23,13 @@
             <artifactId>sopnobazz-hospital-sysadmin</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.sopnobazz</groupId>
+            <artifactId>sopnobazz-hospital-doctor-patient</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>oith</groupId>
             <artifactId>solaiman-lipi</artifactId>

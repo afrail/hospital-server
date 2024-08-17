@@ -118,8 +118,8 @@
     </build>
     <modules>
         <module>sopnobazz-hospital-comon</module>
-        <module>sopnobazz-hospital-comon</module>
         <module>sopnobazz-hospital-launch</module>
         <module>sopnobazz-hospital-doctor-patient</module>
+        <module>sopnobazz-hospital-sysadmin</module>
     </modules>
 </project>

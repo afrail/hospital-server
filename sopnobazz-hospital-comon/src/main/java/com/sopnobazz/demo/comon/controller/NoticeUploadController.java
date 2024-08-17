@@ -28,7 +28,7 @@ import java.io.IOException;
 /**
  * @version 2.0.0
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Nov 14, 2021
  */
 

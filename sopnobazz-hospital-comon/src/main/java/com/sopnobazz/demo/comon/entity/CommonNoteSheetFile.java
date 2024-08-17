@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Jul 29, 2021
  * @version 1.0.0
  */

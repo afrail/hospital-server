@@ -21,7 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @version 1.0.0
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 23, 2022
  */

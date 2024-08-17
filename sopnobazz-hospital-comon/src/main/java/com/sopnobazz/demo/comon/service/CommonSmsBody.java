@@ -12,7 +12,7 @@ import lombok.AllArgsConstructor;
 
 /**
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Nov 1, 2021
  * @version 1.0.0
  */

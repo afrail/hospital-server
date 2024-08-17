@@ -12,7 +12,7 @@ import lombok.Setter;
  * @version 1.0.0
  * @Since June 17, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 @Setter
 @Getter

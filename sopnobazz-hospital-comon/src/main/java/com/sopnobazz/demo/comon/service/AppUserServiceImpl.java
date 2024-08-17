@@ -10,6 +10,8 @@ import java.util.stream.Collectors;
 
 import com.sopnobazz.demo.comon.dto.PasswordChangeDto;
 import com.sopnobazz.demo.comon.entity.AppUser;
+import com.sopnobazz.demo.comon.entity.PasswordHistory;
+import com.sopnobazz.demo.comon.repository.PasswordHistoryRepository;
 import com.sopnobazz.demo.comon.utils.CommonUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,10 +24,11 @@ import org.springframework.stereotype.Service;
 import com.sopnobazz.demo.comon.repository.AppUserRepository;
 
 import lombok.AllArgsConstructor;
+import org.springframework.util.ObjectUtils;
 
 /**
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Jun 9, 2021
  * @version 1.0.0
  */
@@ -40,6 +43,7 @@ public class AppUserServiceImpl implements AppUserService {
     private AppUserRepository repo;
     private PasswordEncoder encoder;
     private final CommonUtils commonUtils;
+    private final PasswordHistoryRepository passwordHistoryRepo;
 
     @Override
     public AppUser save(AppUser entity) {
@@ -53,20 +57,33 @@ public class AppUserServiceImpl implements AppUserService {
 
     @Override
     public AppUser saveUser(AppUser entity) {
+
+        String password = entity.getPassword();
         entity.setPassword(encoder.encode(entity.getPassword()));
         commonUtils.setEntryUserInfo(entity);
         AppUser savedEntity = repo.save(entity);
+
+        if (!ObjectUtils.isEmpty(savedEntity)) {
+            savedEntity.setPassword(password);
+            savePasswordHistory(savedEntity);
+        }
 
         return savedEntity;
     }
 
     @Override
     public AppUser update(AppUser entity) {
-//    	entity.setPassword(encoder.encode(entity.getPassword()));
+        String password = entity.getPassword();
         AppUser dbEntity = repo.findById(entity.getId()).get();
 
         commonUtils.setUpdateUserInfo(entity, dbEntity);
         commonUtils.copyNonNullProperties(entity, dbEntity);
+
+        if (!ObjectUtils.isEmpty(dbEntity)) {
+            dbEntity.setPassword(password);
+            savePasswordHistory(dbEntity);
+        }
+
         return repo.save(dbEntity);
     }
 
@@ -118,6 +135,18 @@ public class AppUserServiceImpl implements AppUserService {
                 throw new Exception("Invalid Data");
         } else
             throw new Exception("User Not Found");
+    }
+
+    public void savePasswordHistory(AppUser dto) {
+
+        PasswordHistory history = new PasswordHistory();
+        history.setEntryUser(dto.getEntryUser());
+        history.setAppUser(dto);
+//    	history.setPassword(encoder.encode(dto.getPassword()));
+        history.setPassword(dto.getPassword());
+        commonUtils.setEntryUserInfo(history);
+        passwordHistoryRepo.save(history);
+
     }
 
 }

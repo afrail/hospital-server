@@ -18,7 +18,7 @@ import lombok.Data;
 /**
  * @version 1.0.0
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Project ibcs-bof-erp
  */
 

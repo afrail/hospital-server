@@ -15,7 +15,7 @@ import lombok.EqualsAndHashCode;
  * @version 1.0.0
  * @Since May 20, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -29,11 +29,13 @@ public class LoginResponse {
 
     public LoginResponse(String token,
                          Integer id,
-                         List<UserRoleAssign> userRoles) {
+                         List<UserRoleAssign> userRoles,
+                         PasswordHistory passwordHistory) {
         super();
         this.token = token;
         this.id = id;
         this.userRoles = userRoles;
+        this.passwordHistory = passwordHistory;
     }
 
 

@@ -19,7 +19,7 @@ import lombok.AllArgsConstructor;
  * @version 1.0.0
  * @Since July 05, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 @Service
 @AllArgsConstructor

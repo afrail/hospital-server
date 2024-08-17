@@ -11,7 +11,7 @@ import org.springframework.data.domain.Page;
 
 /**
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Jun 9, 2021
  * @version 1.0.0
  */

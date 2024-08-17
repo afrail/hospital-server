@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * @version 1.0.0
  * @Since August 16, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 
 

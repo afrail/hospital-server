@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  * @version 1.0.0
  * @Since July 07, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 
 @Repository

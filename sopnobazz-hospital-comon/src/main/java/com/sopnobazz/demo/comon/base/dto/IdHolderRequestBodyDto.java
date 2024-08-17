@@ -5,7 +5,7 @@ import java.util.UUID;
 
 /**
  * @version 1.0.0
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 23, 2022
  */

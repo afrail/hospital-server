@@ -3,7 +3,7 @@ package com.sopnobazz.demo.comon.repository;
 /**
  * @Since May 20, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @version 1.0.0
  */
 

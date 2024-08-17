@@ -2,7 +2,7 @@ package com.sopnobazz.demo.sysadmin.auth.request;
 
 /**
  * @version 1.0.0
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since May 28, 2021
  */

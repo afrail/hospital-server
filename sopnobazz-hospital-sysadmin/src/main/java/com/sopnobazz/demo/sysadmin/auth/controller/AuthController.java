@@ -5,7 +5,6 @@ import javax.validation.Valid;
 
 import com.sopnobazz.demo.comon.entity.AppUser;
 import com.sopnobazz.demo.comon.entity.PasswordHistory;
-import com.sopnobazz.demo.comon.entity.PasswordPolicy;
 import com.sopnobazz.demo.comon.entity.UserRoleAssign;
 import com.sopnobazz.demo.comon.utils.CommonUtils;
 import com.sopnobazz.demo.sysadmin.auth.request.DoctorSignupRequest;
@@ -28,23 +27,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopnobazz.demo.comon.entity.AppUserLog;
 import com.sopnobazz.demo.comon.repository.AppUserLogRepository;
 import com.sopnobazz.demo.comon.repository.AppUserRepository;
-import com.sopnobazz.demo.comon.repository.ApprovalTeamDetailsRepository;
 import com.sopnobazz.demo.comon.repository.PasswordHistoryRepository;
 import com.sopnobazz.demo.comon.repository.UserRoleAssignRepository;
-import com.sopnobazz.demo.comon.repository.ApprovalTeamDetailsRepository.ApprovalUser;
 import com.sopnobazz.demo.comon.response.CommonResponse;
 import com.sopnobazz.demo.sysadmin.auth.response.LoginResponse;
-import com.sopnobazz.demo.sysadmin.entity.AppUserEmployee;
-import com.sopnobazz.demo.sysadmin.repository.AppUserEmployeeRepository;
 
 import lombok.AllArgsConstructor;
 
 import static com.sopnobazz.demo.comon.constants.ApiConstants.*;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -67,7 +60,6 @@ public class AuthController {
     private final UserRoleAssignRepository userRoleAssignRepository;
     private final PasswordHistoryRepository historyRepository;
     private final AppUserRepository appUserRepository;
-    private final AppUserEmployeeRepository appUserEmpRepo;
     private final AppUserLogRepository appUserLogRepo;
 
     private final AuthTokenUtils authTokenUtils;
@@ -94,21 +86,21 @@ public class AuthController {
 
             /* get password policy */
             AppUser appUser = appUserRepository.findById(userDetails.getId()).get();
-            // PasswordPolicy passwordPolicy = appUser.getPasswordPolicy();
+            PasswordHistory passwordHistory = historyRepository.getMaxEntryDateByUserId(userDetails.getId());
 
             /* add login log */
 
-            AppUserLog appUserLog = new AppUserLog();
+            /*AppUserLog appUserLog = new AppUserLog();
             appUserLog.setAppUser(appUser.getId());
             AppUserEmployee appUserEmp = appUserEmpRepo.findByAppUserIdAndActive(appUser.getId(), true);
             appUserLog.setAppUserEmp(appUserEmp == null ? 0 : appUserEmp.getId());
             appUserLog.setLoginDate(new Date());
-            appUserLogRepo.save(appUserLog);
+            appUserLogRepo.save(appUserLog);*/
 
             /* create response */
             CommonResponse res = new CommonResponse();
             res.setStatus(true);
-            res.setData(new LoginResponse(jwtToken, userDetails.getId(), userRoles));
+            res.setData(new LoginResponse(jwtToken, userDetails.getId(), userRoles,passwordHistory));
             return ResponseEntity.ok(res);
 
         } catch (Exception e) {

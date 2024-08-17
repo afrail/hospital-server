@@ -9,7 +9,7 @@ import org.springframework.data.domain.Page;
  * @version 1.0.0
  * @Since May 20, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 public interface CommonLookupMasterService {
 

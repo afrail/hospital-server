@@ -9,7 +9,7 @@ import com.sopnobazz.demo.comon.entity.UserBalance;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 9, 2022
  * @version 1.0.0

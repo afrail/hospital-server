@@ -6,7 +6,7 @@ import org.springframework.http.MediaType;
  * @version 1.0.0
  * @Since May 20, 2021
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 
 public interface ApiConstants {
@@ -30,7 +30,7 @@ public interface ApiConstants {
     String DRAWING_END_POINT = PRIVATE_BOF_ENDPOINT + "drw/";
     String RATION_AND_WELFARE_END_POINT = PRIVATE_BOF_ENDPOINT + "raw/";
     String BUDGET_END_POINT = PRIVATE_BOF_ENDPOINT + "budget/";
-    String EHM_END_POINT = PRIVATE_BOF_ENDPOINT + "ehm/";
+    String EHM_END_POINT = PRIVATE_BOF_ENDPOINT + "hospital/";
 
 
     // find active URL

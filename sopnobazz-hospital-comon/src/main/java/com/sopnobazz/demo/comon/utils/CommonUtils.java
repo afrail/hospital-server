@@ -95,7 +95,7 @@ public class CommonUtils implements MessageConstants {
 //		System.out.println("come ");
 //		System.out.println(appUser);
 
-        entity.setEntryAppUserCode(appUser.getUpdateAppUserName());
+        entity.setEntryHospitalCode(appUser.getHospitalCode());
 
     }
 
@@ -120,7 +120,7 @@ public class CommonUtils implements MessageConstants {
         /* set other information */
         Integer userId = entity.getUpdateUser();
         AppUser appUser = appUserRepo.findById(userId).get();
-        entity.setUpdateAppUserName(appUser.getUsername());
+        entity.setUpdateHospitalCode(appUser.getHospitalCode());
 
     }
 

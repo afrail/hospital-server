@@ -14,7 +14,7 @@ import lombok.Data;
 
 /**
  * @version 1.0.0
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since May 28, 2021
  */
@@ -45,9 +45,9 @@ public class BaseEntity implements Serializable {
     @Column(name = "UPDATE_DATE", insertable = false)
     private Date updateDate;
 
-    @Column(name = "ENTRY_APP_USER_CODE", length = 50)
-    private String entryAppUserCode;
+    @Column(name = "ENTRY_HOSPITAL_CODE", length = 50)
+    private String entryHospitalCode;
 
-    @Column(name = "UPDATE_APP_USER_NAME", length = 50)
-    private String updateAppUserName;
+    @Column(name = "UPDATE_HOSPITAL_CODE", length = 50)
+    private String updateHospitalCode;
 }

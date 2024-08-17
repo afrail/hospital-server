@@ -6,7 +6,7 @@ package com.sopnobazz.demo.comon.dto;
 import lombok.Data;
 
 /**
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 22, 2022
  * @version 1.0.0

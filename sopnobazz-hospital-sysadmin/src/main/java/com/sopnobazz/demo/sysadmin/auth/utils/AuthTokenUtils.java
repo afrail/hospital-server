@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -43,6 +44,7 @@ public class AuthTokenUtils {
 
     @Autowired
     UserRoleAssignRepository userRoleAssignRepository;
+
 
 
     public String generateJwtToken(Authentication authentication) {

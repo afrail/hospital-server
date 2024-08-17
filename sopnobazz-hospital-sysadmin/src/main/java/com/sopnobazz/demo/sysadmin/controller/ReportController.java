@@ -17,7 +17,6 @@ import com.sopnobazz.demo.comon.repository.AppUserRepository;
 import com.sopnobazz.demo.comon.response.CommonResponse;
 import com.sopnobazz.demo.comon.utils.CommonUtils;
 import com.sopnobazz.demo.comon.utils.UserTokenRequestUtils;
-import com.sopnobazz.demo.sysadmin.entity.AppUserEmployee;
 import com.sopnobazz.demo.sysadmin.report.ParameterCompilation;
 import com.sopnobazz.demo.sysadmin.report.ReportCompilation;
 import com.sopnobazz.demo.sysadmin.report.ReportExporter;
@@ -34,8 +33,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.sopnobazz.demo.sysadmin.repository.AppUserEmployeeRepository;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
@@ -75,8 +72,6 @@ public class ReportController {
     @Autowired
     private AppUserRepository appUserRepo;
 
-    @Autowired
-    private AppUserEmployeeRepository appUserEmpRepo;
 
     @Autowired
     private AppUserLogRepository appUserLogRepo;
@@ -108,8 +103,6 @@ public class ReportController {
         AppUser appUser = appUserRepo.findById(authTokenUtils.getUserIdFromRequest(request)).get();
         AppUserLog appUserLog = new AppUserLog();
         appUserLog.setAppUser(appUser.getId());
-        AppUserEmployee appUserEmp = appUserEmpRepo.findByAppUserIdAndActive(appUser.getId(), true);
-        appUserLog.setAppUserEmp(appUserEmp == null ? 0 : appUserEmp.getId());
         appUserLog.setLoginDate(new Date());
         appUserLog.setReportIS(true);
         appUserLogRepo.save(appUserLog);

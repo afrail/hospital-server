@@ -17,7 +17,7 @@ import lombok.Data;
  * @version 2.0.0
  * @Since MARCH 30, 2022
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  */
 
 

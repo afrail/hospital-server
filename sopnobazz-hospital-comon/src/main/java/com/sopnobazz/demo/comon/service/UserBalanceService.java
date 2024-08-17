@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.sopnobazz.demo.comon.repository.UserBalanceRepository;
 
 /**
- * @Project hospital-management
+ * @Project demo-management
  * @Author Md. Nayeemul Islam
  * @Since Aug 9, 2022
  * @version 1.0.0

@@ -13,7 +13,7 @@ import lombok.Data;
 
 /**
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since Sep 22, 2021
  * @version 1.0.0
  */

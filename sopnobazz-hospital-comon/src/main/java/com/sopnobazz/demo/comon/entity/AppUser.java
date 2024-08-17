@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 /**
  * @version 1.0.0
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @Since July 06, 2021
  */
 
@@ -39,6 +39,9 @@ public class AppUser extends BaseEntity {
 
     @Column(name = "PASSWORD", nullable = false)
     private String password;
+
+    @Column(name = "HOSPITAL_CODE")
+    private String hospitalCode;
 
     @Column(name = "EMAIL", length = 100)
     private String email;

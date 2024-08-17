@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 /**
  * @Project bof-erp
  * @Author Md. Nayeemul Islam
- * @Project hospital-management
+ * @Project demo-management
  * @version 1.0.0
  */
 
