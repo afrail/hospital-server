@@ -118,7 +118,7 @@ public class TokenRegisterServiceImpl implements TokenRegisterService {
     @Override
     public List<TokenRegisterRequest> getSearch(TokenRegisterSearchParam obj) {
         return getWithPatientInfo(
-        repo.getBySearchParam(obj.getDoctorId(),obj.getFromDate(),obj.getToDate()));
+        repo.getBySearchParam(obj.getFromDate(),obj.getToDate()));
     }
 
 

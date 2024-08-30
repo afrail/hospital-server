@@ -26,12 +26,10 @@ public interface TokenRegisterRepository extends JpaRepository<TokenRegister, In
 	String getQuery = "SELECT master.*\n"
 			+ "FROM EHM_TOKEN_REGISTER master\n"
 			+ "WHERE 1 = 1\n"
-			+ "AND COALESCE(master.refer_to_doctor_id , 1) = CASE WHEN :doctorId = 0 THEN COALESCE(master.refer_to_doctor_id, 1) ELSE :doctorId END\n"
 			+ "and ((cast(:fromDate as date) IS NULL OR cast(:toDate as date) IS NULL) OR date(master.VISIT_DATE) BETWEEN :fromDate AND :toDate)\n"
 			+ "order by id desc";
 	@Query(value = getQuery, nativeQuery = true)
 	List<TokenRegister> getBySearchParam(
-			@Param("doctorId") Integer doctorId,
 			@Param("fromDate") Date fromDate,
 			@Param("toDate") Date toDate
 	);

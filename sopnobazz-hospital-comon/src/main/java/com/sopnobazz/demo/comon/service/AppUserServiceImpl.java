@@ -74,6 +74,7 @@ public class AppUserServiceImpl implements AppUserService {
     @Override
     public AppUser update(AppUser entity) {
         String password = entity.getPassword();
+        entity.setPassword(encoder.encode(entity.getPassword()));
         AppUser dbEntity = repo.findById(entity.getId()).get();
 
         commonUtils.setUpdateUserInfo(entity, dbEntity);
@@ -84,7 +85,7 @@ public class AppUserServiceImpl implements AppUserService {
             savePasswordHistory(dbEntity);
         }
 
-        return repo.save(dbEntity);
+        return repo.save(entity);
     }
 
     @Override
